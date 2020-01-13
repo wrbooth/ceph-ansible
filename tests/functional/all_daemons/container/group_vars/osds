@@ -1,10 +1,2 @@
 ---
 ceph_osd_docker_run_script_path: /var/tmp
-osd_objectstore: "bluestore"
-osd_scenario: non-collocated
-devices:
-  - /dev/sda
-  - /dev/sdb
-dedicated_devices:
-  - /dev/sdc
-  - /dev/sdc

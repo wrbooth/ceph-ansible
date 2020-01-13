@@ -7,5 +7,11 @@ mon2
 mgr0
 
 [osds]
-osd0 osd_crush_location="{ 'root': 'default', 'host': 'osd0' }"
-osd1 osd_crush_location="{ 'root': 'default', 'host': 'osd1' }"
+osd0 osd_auto_discovery=true osd_scenario="collocated" osd_objectstore="filestore" dmcrypt="true"
+osd1 dedicated_devices="['/dev/sdc','/dev/sdc']" devices="['/dev/sda','/dev/sdb']" osd_scenario="non-collocated" osd_objectstore="bluestore" dmcrypt="true"
+osd2 devices="['/dev/sda','/dev/sdb','/dev/sdc']" osd_scenario="collocated" osd_objectstore="bluestore" dmcrypt="true"
+osd3 osd_auto_discovery=true osd_scenario="collocated" osd_objectstore="bluestore"
+osd4 osd_scenario="lvm" lvm_volumes="[{'data': 'data-lv1', 'data_vg': 'test_group', 'journal': 'journal1', 'journal_vg':'journals'},{'data': 'data-lv2', 'data_vg': 'test_group', 'journal': 'journal2', 'journal_vg': 'journals'}]" osd_objectstore="filestore"
+osd5 osd_scenario="lvm" lvm_volumes="[{'data': 'data-lv1', 'data_vg': 'test_group', 'journal': 'journal1', 'journal_vg':'journals'},{'data': 'data_lv2', 'data_vg': 'test_group', 'journal': 'journal2', 'journal_vg': 'journals'}]" osd_objectstore="filestore"
+osd6 devices="['/dev/sda','/dev/sdb','/dev/sdc']" osd_scenario="lvm" osds_per_device=4 osd_objectstore="filestore"
+osd7 osd_auto_discovery=true osd_scenario=lvm osd_objectstore="filestore"
